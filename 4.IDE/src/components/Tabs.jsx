@@ -8,9 +8,10 @@ import { useState } from "react";
 
 export default function Tabs() {
   const tabs = useSelector(state => state.tabs)
-  console.log(tabs);
-
-  const [tabIndex, setTabIndex] = useState(tabs[0])
+  console.log("tabs", tabs);
+  
+  const [tabIndex, setTabIndex] = useState(tabs[0].id)
+  console.log("tabIndex", tabIndex);
   return (
     <div className="flex grow">
       <div className="grow flex flex-col w-[175px] shrink-0 text-slate-300 border-r border-slate-200">
@@ -19,7 +20,8 @@ export default function Tabs() {
         ))}
       </div>
       <div className="w-full grow relative">
-        <CodeTab/>
+        <CodeTab id={tabIndex}
+        code={tabs.find(obj=> obj.id === tabIndex).code}/>
       </div>
     </div>
   );
