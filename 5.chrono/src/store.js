@@ -1,10 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import tabs from "./features/tabs";
-import preview from "./features/preview";
+import chrono from "./features/chrono";
 
 export const store = configureStore({
   reducer: {
-    tabs,
-    preview,
+    chrono,
   },
 });
